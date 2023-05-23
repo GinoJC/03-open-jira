@@ -43,13 +43,21 @@ const NewEntry = () => {
           />
           <Box display="flex" justifyContent="space-between">
             <Button onClick={onCloseInput}>Cancelar</Button>
-            <Button variant="outlined" color="secondary" endIcon={<SaveOutlined />} onClick={onSave}>
+            <Button
+              variant="outlined"
+              color="secondary"
+              endIcon={<SaveOutlined />}
+              onClick={onSave}>
               Guardar
             </Button>
           </Box>
         </>
       ) : (
-        <Button startIcon={<AddCircleOutline />} fullWidth variant="outlined" onClick={() => setIsAddingEntry(true)}>
+        <Button
+          startIcon={<AddCircleOutline />}
+          fullWidth
+          variant="outlined"
+          onClick={() => setIsAddingEntry(true)}>
           Agregar Tarea
         </Button>
       )}

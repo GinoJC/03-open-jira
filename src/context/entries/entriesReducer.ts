@@ -1,10 +1,18 @@
 import { EntriesState } from './';
 import { Entry } from 'interfaces';
 
-type EntriesActionType = { type: 'ADD_ENTRY'; payload: Entry } | { type: 'UPDATE_ENTRY'; payload: Entry };
+type EntriesActionType =
+  | { type: 'REFRESH_ENTRIES'; payload: Entry[] }
+  | { type: 'ADD_ENTRY'; payload: Entry }
+  | { type: 'UPDATE_ENTRY'; payload: Entry };
 
 export const entriesReducer = (state: EntriesState, action: EntriesActionType): EntriesState => {
   switch (action.type) {
+    case 'REFRESH_ENTRIES':
+      return {
+        ...state,
+        entries: [...action.payload],
+      };
     case 'ADD_ENTRY':
       return {
         ...state,
